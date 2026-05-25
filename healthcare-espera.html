@@ -12,13 +12,14 @@
 
   <style>
     :root {
-      --accent:   #0563bb;
-      --accent-light: #e8f1fb;
-      --text:     #2a2f35;
-      --muted:    #6c757d;
-      --border:   #e4e8ed;
-      --bg:       #fafafa;
-      --card-bg:  #ffffff;
+      --accent:       #e50914;
+      --accent-light: rgba(229,9,20,0.1);
+      --text:         #c8ccd4;
+      --muted:        #8a9bb0;
+      --border:       #2a2d36;
+      --bg:           #0f1117;
+      --card-bg:      #1a1d26;
+      --icon-bg:      rgba(255,255,255,0.1);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,8 +33,8 @@
 
     /* ── Nav de volta ── */
     .back-bar {
-      background: var(--card-bg);
-      border-bottom: 1px solid var(--border);
+      background: #1a1d26;
+      border-bottom: 1px solid #2a2d36;
       padding: 14px 0;
       position: sticky;
       top: 0;
@@ -68,7 +69,7 @@
 
     /* ── Hero da análise ── */
     .story-hero {
-      background: linear-gradient(160deg, #0a2a4e 0%, #0563bb 60%, #1a7fd4 100%);
+      background: linear-gradient(160deg, #0a2a4e 0%, #e50914 60%, #c0392b 100%);
       color: #fff;
       padding: 72px 24px 60px;
       text-align: center;
@@ -167,7 +168,7 @@
 
     .chapter p {
       font-size: 17px;
-      color: #3a3f47;
+      color: #c8ccd4;
       margin-bottom: 16px;
     }
 
@@ -176,14 +177,14 @@
       border-left: 4px solid var(--accent);
       padding: 18px 24px;
       margin: 32px 0;
-      background: var(--accent-light);
+      background: rgba(229,9,20,0.07);
       border-radius: 0 8px 8px 0;
     }
     .pullquote p {
       font-family: 'Lora', serif;
       font-style: italic;
       font-size: 19px !important;
-      color: #1a3a5c !important;
+      color: #e8d0d0 !important;
       margin: 0 !important;
       line-height: 1.6;
     }
@@ -232,7 +233,7 @@
     .insight-card .ic-icon {
       width: 38px;
       height: 38px;
-      background: var(--accent-light);
+      background: rgba(229,9,20,0.07);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -258,7 +259,7 @@
 
     /* Conclusão */
     .conclusion-box {
-      background: linear-gradient(135deg, #0a2a4e, #0563bb);
+      background: linear-gradient(135deg, #0a2a4e, #e50914);
       color: #fff;
       border-radius: 16px;
       padding: 40px;
@@ -469,7 +470,7 @@
     var cfg = { displayModeBar: false, responsive: true };
     var base = {
       paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
-      font: { family: 'Raleway, sans-serif', size: 12, color: '#2a2f35' },
+      font: { family: 'Raleway, sans-serif', size: 12, color: '#c8ccd4' },
       margin: { t: 12, r: 20, b: 48, l: 48 }
     };
     function mg(a, b) { return Object.assign({}, a, b); }
@@ -481,7 +482,7 @@
       type: 'bar', orientation: 'h',
       x: dVals, y: dNames,
       marker: { color: dVals,
-        colorscale: [[0,'#a8c8f0'],[0.5,'#2980d4'],[1,'#0563bb']], showscale: false },
+        colorscale: [[0,'#a8c8f0'],[0.5,'#2980d4'],[1,'#e50914']], showscale: false },
       text: dVals.map(function(v){ return v.toFixed(1)+' min'; }),
       textposition: 'outside',
       hovertemplate: '<b>%{y}</b><br>Média: %{x:.1f} min<extra></extra>'
@@ -498,7 +499,7 @@
     Plotly.newPlot('chart-monthly', [
       { type:'scatter', mode:'lines+markers', name:'Espera (min)',
         x: months, y: waits,
-        line: { color:'#0563bb', width:2.5 }, marker: { size:5 },
+        line: { color:'#e50914', width:2.5 }, marker: { size:5 },
         hovertemplate: '%{x}<br>Espera: %{y:.1f} min<extra></extra>' },
       { type:'scatter', mode:'lines+markers', name:'Satisfação (0–10)',
         x: months, y: sats, yaxis:'y2',
