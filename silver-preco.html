@@ -12,15 +12,15 @@
 
   <style>
     :root {
-      --accent:       #3a3f47;
-      --accent-vivid: #0563bb;
+      --accent:       #e50914;
+      --accent-vivid: #e50914;
       --silver:       #8a9bb0;
-      --accent-light: #f0f3f7;
-      --text:         #2a2f35;
-      --muted:        #6c757d;
-      --border:       #e4e8ed;
-      --bg:           #fafafa;
-      --card-bg:      #ffffff;
+      --accent-light: rgba(229,9,20,0.1);
+      --text:         #c8ccd4;
+      --muted:        #8a9bb0;
+      --border:       #2a2d36;
+      --bg:           #0f1117;
+      --card-bg:      #1a1d26;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -31,8 +31,8 @@
     }
 
     .back-bar {
-      background: var(--card-bg);
-      border-bottom: 1px solid var(--border);
+      background: #1a1d26;
+      border-bottom: 1px solid #2a2d36;
       padding: 14px 0;
       position: sticky; top: 0; z-index: 100;
     }
@@ -42,11 +42,11 @@
     }
     .back-link {
       display: flex; align-items: center; gap: 8px;
-      color: var(--accent-vivid); text-decoration: none;
+      color: #e50914; text-decoration: none;
       font-family: 'Raleway', sans-serif; font-size: 14px; font-weight: 600;
       transition: gap 0.2s;
     }
-    .back-link:hover { gap: 12px; color: var(--accent-vivid); }
+    .back-link:hover { gap: 12px; color: #e50914; }
     .back-bar .meta {
       font-family: 'Raleway', sans-serif; font-size: 12px;
       color: var(--muted); letter-spacing: 0.5px;
@@ -108,24 +108,24 @@
     .chapter-label {
       font-family: 'Raleway', sans-serif; font-size: 11px; font-weight: 700;
       letter-spacing: 2px; text-transform: uppercase;
-      color: var(--accent-vivid); margin-bottom: 10px;
+      color: #e50914; margin-bottom: 10px;
     }
     .chapter h2 {
       font-family: 'Raleway', sans-serif;
       font-size: clamp(20px,3vw,26px); font-weight: 700;
       color: var(--text); margin-bottom: 18px; line-height: 1.3;
     }
-    .chapter p { font-size: 17px; color: #3a3f47; margin-bottom: 16px; }
+    .chapter p { font-size: 17px; color: #c8ccd4; margin-bottom: 16px; }
 
     .pullquote {
       border-left: 4px solid var(--silver);
       padding: 18px 24px; margin: 32px 0;
-      background: var(--accent-light);
+      background: rgba(229,9,20,0.07);
       border-radius: 0 8px 8px 0;
     }
     .pullquote p {
       font-family: 'Lora', serif; font-style: italic;
-      font-size: 19px !important; color: #2a3240 !important;
+      font-size: 19px !important; color: #e8d0d0 !important;
       margin: 0 !important; line-height: 1.6;
     }
 
@@ -137,12 +137,12 @@
     }
     .tl-year {
       font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 800;
-      color: var(--accent-vivid); min-width: 42px; padding-top: 2px;
+      color: #e50914; min-width: 42px; padding-top: 2px;
     }
     .tl-line { display: flex; flex-direction: column; align-items: center; }
     .tl-dot {
       width: 10px; height: 10px; border-radius: 50%;
-      background: var(--accent-vivid); flex-shrink: 0; margin-top: 4px;
+      background: #e50914; flex-shrink: 0; margin-top: 4px;
     }
     .tl-bar { width: 2px; flex: 1; background: var(--border); margin-top: 4px; min-height: 20px; }
     .tl-content h4 {
@@ -155,7 +155,7 @@
     }
 
     .chart-block {
-      background: var(--card-bg); border: 1px solid var(--border);
+      background: #1a1d26; border: 1px solid #2a2d36;
       border-radius: 12px; overflow: hidden; margin: 32px 0;
       box-shadow: 0 2px 16px rgba(0,0,0,0.06);
     }
@@ -176,14 +176,14 @@
       gap: 16px; margin: 28px 0;
     }
     .insight-card {
-      background: var(--card-bg); border: 1px solid var(--border);
+      background: #1a1d26; border: 1px solid #2a2d36;
       border-radius: 10px; padding: 20px;
     }
     .insight-card .ic-icon {
-      width: 38px; height: 38px; background: var(--accent-light);
+      width: 38px; height: 38px; background: rgba(229,9,20,0.07);
       border-radius: 50%; display: flex; align-items: center;
       justify-content: center; margin-bottom: 12px;
-      color: var(--accent-vivid); font-size: 16px;
+      color: #e50914; font-size: 16px;
     }
     .insight-card h4 {
       font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 700;
@@ -210,7 +210,7 @@
       border-top: 1px solid var(--border);
       font-family: 'Raleway', sans-serif; font-size: 13px; color: var(--muted);
     }
-    .analysis-footer a { color: var(--accent-vivid); text-decoration: none; font-weight: 600; }
+    .analysis-footer a { color: #e50914; text-decoration: none; font-weight: 600; }
 
     @media (max-width: 600px) {
       .hero-divider { display: none; }
@@ -420,7 +420,7 @@
     var cfg = { displayModeBar: false, responsive: true };
     var base = {
       paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
-      font: { family: 'Raleway, sans-serif', size: 12, color: '#2a2f35' },
+      font: { family: 'Raleway, sans-serif', size: 12, color: '#c8ccd4' },
       margin: { t: 12, r: 20, b: 48, l: 55 }
     };
     function mg(a, b) { return Object.assign({}, a, b); }
@@ -434,7 +434,7 @@
       type: 'scatter', mode: 'lines', name: 'Fechamento USD',
       x: sDates, y: sClose,
       line: { color: '#6a8faf', width: 2 },
-      fill: 'tozeroy', fillcolor: 'rgba(106,143,175,0.1)',
+      fill: 'tozeroy', fillcolor: 'rgba(229,9,20,0.1)',
       hovertemplate: '%{x}<br><b>USD %{y:.2f}</b><extra></extra>'
     }], mg(base, {
       height: 340,
@@ -461,11 +461,11 @@
       "2024":[23.73,22.95,22.99,23.12,23.12,22.64,22.62,22.52,22.7,23.49,23.0,23.42,23.58,24.28,24.27,24.57,24.63,24.82,24.77,24.98,25.43,25.61,25.45,25.29,24.87,25.23,25.75,25.56,26.17,26.29,27.0,27.11,27.59,27.89,28.03,27.85,27.0,27.9,28.89,29.09,29.52,30.27,29.95,31.9,32.51,31.76,31.0,30.96,29.78,30.68,31.5,32.22,31.23,30.57,29.66,30.05,28.94,30.34,30.79,30.13,30.95,30.67,30.73,32.13,32.86,32.39,32.65,32.99,32.58,31.8,32.11,32.55,33.48,34.07,33.79,34.0,34.64,34.5,29.51,30.67,32.23,32.5,33.48,33.28,31.99,32.53,32.39,32.48,32.98,33.44,33.28,34.5,36.03,36.17,36.38,35.98,36.08,35.85,36.78,36.47,38.68,37.85,39.1,39.02,38.08,36.79,37.77,37.66,37.98,37.26,39.0,38.69,41.07,41.07,41.13,42.52,41.71,44.19,46.22,47.29,48.08,46.85,50.31,49.86,47.46,46.56,48.43,47.13,48.02,53.33,50.62,50.25,50.93,58.42,56.85,60.17,61.36,66.24,67.91,76.49,70.13,80.53,78.88,90.87]
     };
 
-    var pal = {'2011':'#5c9ee0','2013':'#7ab0e0','2016':'#9abfe8','2020':'#2980d4','2022':'#1a6ec4','2024':'#0563bb'};
+    var pal = {'2011':'#5c9ee0','2013':'#7ab0e0','2016':'#9abfe8','2020':'#2980d4','2022':'#1a6ec4','2024':'#e50914'};
     var selectedYears = ['2011','2013','2016','2020','2022','2024'];
     var boxTraces = selectedYears.map(function(yr) {
       return { type:'box', name:yr, y: yearData[yr],
-               marker: { color: pal[yr] || '#0563bb' }, boxpoints: false };
+               marker: { color: pal[yr] || '#e50914' }, boxpoints: false };
     });
 
     Plotly.newPlot('chart-box', boxTraces, mg(base, {
