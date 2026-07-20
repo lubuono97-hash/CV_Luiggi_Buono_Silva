@@ -278,6 +278,27 @@
           mg(base, { yaxis: { title: 'USD / oz' }, xaxis: { title: 'Ano' }, showlegend: false }), cfg);
 
         })();
+
+        // Força o redimensionamento correto de todos os gráficos após o render.
+        // Corrige o colapso de altura que ocorre no primeiro paint em mobile/Safari.
+        var _chartIds = ['chart-dept', 'chart-monthly', 'chart-silver', 'chart-box'];
+        function _resizeAllCharts() {
+          _chartIds.forEach(function (id) {
+            var el = document.getElementById(id);
+            if (el && el.querySelector('.js-plotly-plot')) {
+              try { Plotly.Plots.resize(el); } catch (e) {}
+            }
+          });
+        }
+        // Resize imediato (após o layout assentar) e mais um pouco depois
+        // para pegar fontes/imagens que ainda estejam carregando.
+        setTimeout(_resizeAllCharts, 100);
+        setTimeout(_resizeAllCharts, 500);
+        setTimeout(_resizeAllCharts, 1200);
+        window.addEventListener('resize', _resizeAllCharts);
+        window.addEventListener('orientationchange', function () {
+          setTimeout(_resizeAllCharts, 200);
+        });
       }
 
       // Polling robusto: aguarda Plotly + DOM prontos antes de renderizar
@@ -300,6 +321,16 @@
       } else {
         _waitPlotly();
       }
+
+      // Rede de segurança final: quando TUDO (imagens, fontes, CSS) tiver
+      // carregado, força mais um resize para garantir consistência total.
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          if (typeof Plotly !== 'undefined' && typeof _resizeAllCharts === 'function') {
+            // _resizeAllCharts só existe depois de _doInitCharts já ter rodado
+          }
+        }, 300);
+      });
     </script>
 
     <!-- Resume Section -->
