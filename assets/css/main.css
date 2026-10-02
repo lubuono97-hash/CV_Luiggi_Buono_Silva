@@ -537,10 +537,33 @@ section,
 
 .hero:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 30%);
+  background:
+    radial-gradient(60% 50% at 15% 20%, rgba(229, 9, 20, 0.22), transparent 70%),
+    radial-gradient(50% 45% at 85% 85%, rgba(229, 9, 20, 0.14), transparent 70%),
+    var(--background-color);
   position: absolute;
   inset: 0;
   z-index: 2;
+}
+
+.hero .hero-spotlight {
+  --mx: 50%;
+  --my: 50%;
+  position: absolute;
+  inset: 0;
+  z-index: 2; /* depois do canvas no DOM, então fica por cima dele e abaixo do texto */
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  mix-blend-mode: screen;
+  background: radial-gradient(circle 320px at var(--mx) var(--my),
+      rgba(229, 9, 20, 0.22),
+      rgba(229, 9, 20, 0.07) 45%,
+      transparent 72%);
+}
+
+.hero .hero-spotlight.is-active {
+  opacity: 1;
 }
 
 .hero #hero-canvas {
